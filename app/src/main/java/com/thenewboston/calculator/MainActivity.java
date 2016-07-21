@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     boolean division = false;
     boolean multiplication = false;
 
-    Button addButton, subButton, divButton, mulButton, eq;
+    Button addButton, subButton, divButton, mulButton, eqButton, buttonClear, buttonDot;
 
     Button nine, eight, seven, six, five, four, three, two, one, zero;
 
@@ -38,16 +38,17 @@ public class MainActivity extends AppCompatActivity {
         // Button inputButton = (Button) findViewById(R.id.input);
         // Button backspace = (Button) findViewById(R.id.backspace);
 
-        Button buttonClear = (Button) findViewById(R.id.clear);
-        Button buttonDot = (Button) findViewById(R.id.dot);
-        Button eq = (Button) findViewById(R.id.eq);
+        buttonClear = (Button) findViewById(R.id.clear);
+        buttonDot = (Button) findViewById(R.id.dot);
+        eqButton = (Button) findViewById(R.id.eq);
 
-        Button addButton = (Button) findViewById(R.id.add);
-        Button subButton = (Button) findViewById(R.id.sub);
-        Button divButton = (Button) findViewById(R.id.div);
-        Button mulButton = (Button) findViewById(R.id.mul);
+        addButton = (Button) findViewById(R.id.add);
+        subButton = (Button) findViewById(R.id.sub);
+        divButton = (Button) findViewById(R.id.div);
+        mulButton = (Button) findViewById(R.id.mul);
 
         returnVal = (EditText) findViewById(R.id.returnVal);
+        System.out.println("returnVal = " + returnVal);
 
         nine = (Button) findViewById(R.id.nine);
         eight = (Button) findViewById(R.id.eight);
@@ -61,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
         zero = (Button) findViewById(R.id.zero);
 
         nine.setOnClickListener(
-                new View.OnClickListener(){
+                new Button.OnClickListener(){
                     @Override
                     public void onClick(View v){
                         returnVal.setText(returnVal.getText()+"9");
@@ -175,7 +176,6 @@ public class MainActivity extends AppCompatActivity {
                         first_num = Float.parseFloat(returnVal.getText() + "");
                         division = true;
                         returnVal.setText(null);
-
                     }
                 }
         );
@@ -190,25 +190,25 @@ public class MainActivity extends AppCompatActivity {
                 }
         );
 
-        eq.setOnClickListener(
+        eqButton.setOnClickListener(
                 new Button.OnClickListener(){
                     @Override
                     public void onClick(View v){
                         second_num = Float.parseFloat(returnVal.getText() + "");
 
-                        if(addition = true){
+                        if(addition == true){
                             addition = false;
                             returnVal.setText(first_num + second_num + "");
                         }
-                        if (subtraction = true){
+                        if (subtraction == true){
                             subtraction = false;
                             returnVal.setText(first_num - second_num + "");
                         }
-                        if (division = true){
+                        if (division == true){
                             division = false;
                             returnVal.setText(first_num / second_num + "");
                         }
-                        if (multiplication = true){
+                        if (multiplication == true){
                             multiplication = false;
                             returnVal.setText(first_num * second_num + "");
                         }
